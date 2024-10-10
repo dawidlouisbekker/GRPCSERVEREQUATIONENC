@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "Question4gRPC";
+
+
+package validator;
+
+// The greeting service definition.
+service Validator {
+  // Sends a greeting
+  rpc EstablishCon (IP) returns (Variables);
+  rpc GiveVariables (Answer) returns (Variables);
+  rpc NewPort (stream Port) returns (stream Recieved);
+}
+
+message IP{
+	string IP = 1;
+}
+
+// The request message containing the user's name.
+message Answer {
+  double answer = 1;
+}
+
+message Variables{
+  int32 a = 2;
+  int32 b = 3;
+  int32 c = 4;
+  int32 x = 5;
+  bytes equtionContext = 6;
+}
+
+message Port {
+	int32 port = 1;
+}
+
+message Recieved {
+	int32 ans = 1;
+}
